@@ -29,12 +29,5 @@ def load_vectorstore():
     return vectorstore
 
 def retrieve(vectorstore, query, k=10):
-    retriever = vectorstore.as_retriever(
-        search_type="similarity",
-        search_kwargs={
-            "k": k,
-            "fetch_k": 50000
-        }
-    )
-    results = retriever.invoke(query)
+    results = vectorstore.similarity_search(query, k=k)
     return results

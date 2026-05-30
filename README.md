@@ -67,7 +67,7 @@ Go to `http://127.0.0.1:7860` in your browser, upload a PDF, click Process PDF, 
 
 ## How retrieval works
 
-The system uses similarity search with a large fetch pool (`fetch_k=50000`). This means FAISS pulls a wide candidate set from the full document before selecting the top 10 most relevant chunks. It avoids the common problem where only one section of the paper dominates the results.
+The system uses similarity search with k=10. ChromaDB scans the full collection by default so no fetch_k is needed — every chunk is a candidate before the top 10 are selected.
 
 ## Notes
 
